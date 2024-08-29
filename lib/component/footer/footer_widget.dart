@@ -39,11 +39,14 @@ class _FooterWidgetState extends State<FooterWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 250.0,
-      decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).accent4,
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+      child: Container(
+        width: double.infinity,
+        height: 250.0,
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).accent4,
+        ),
       ),
     );
   }

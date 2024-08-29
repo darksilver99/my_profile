@@ -49,7 +49,7 @@ class _Section3WidgetState extends State<Section3Widget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,

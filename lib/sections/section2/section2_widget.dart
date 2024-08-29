@@ -42,7 +42,6 @@ class _Section2WidgetState extends State<Section2Widget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 1.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -50,7 +49,7 @@ class _Section2WidgetState extends State<Section2Widget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
