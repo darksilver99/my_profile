@@ -52,6 +52,8 @@ class _Section3WidgetState extends State<Section3Widget>
           .randomProjectList(_model.rsProject?.toList())
           .toList()
           .cast<ProjectListRecord>();
+      await Future.delayed(const Duration(milliseconds: 100));
+
       setState(() {});
     });
 
