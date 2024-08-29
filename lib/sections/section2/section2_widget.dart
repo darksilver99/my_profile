@@ -77,36 +77,39 @@ class _Section2WidgetState extends State<Section2Widget>
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      'About',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            fontSize: 54.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                    SizedBox(
-                      width: 220.0,
-                      child: Divider(
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).tertiary,
+          Container(
+            decoration: BoxDecoration(),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        'About',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              fontSize: 54.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ).animateOnActionTrigger(
-              animationsMap['rowOnActionTriggerAnimation']!,
+                      SizedBox(
+                        width: 220.0,
+                        child: Divider(
+                          thickness: 3.0,
+                          color: FlutterFlowTheme.of(context).tertiary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ).animateOnActionTrigger(
+                animationsMap['rowOnActionTriggerAnimation']!,
+              ),
             ),
           ),
           Row(
@@ -698,37 +701,18 @@ class _Section2WidgetState extends State<Section2Widget>
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                if (animationsMap[
-                                                        'rowOnActionTriggerAnimation'] !=
-                                                    null) {
-                                                  await animationsMap[
-                                                          'rowOnActionTriggerAnimation']!
-                                                      .controller
-                                                      .forward(from: 0.0);
-                                                }
-                                              },
-                                              child: Text(
-                                                'ประวัติการทำงาน',
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 28.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                              ),
+                                            Text(
+                                              'ประวัติการทำงาน',
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    fontSize: 28.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                             ),
                                           ],
                                         ),
