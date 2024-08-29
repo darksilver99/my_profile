@@ -93,15 +93,12 @@ class _Section4WidgetState extends State<Section4Widget>
       ),
       child: Stack(
         children: [
-          Opacity(
-            opacity: 0.5,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.asset(
-                'assets/images/high-angle-desk-assortment-with-laptop_23-2149013922.jpg',
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(0.0),
+            child: Image.asset(
+              'assets/images/high-angle-desk-assortment-with-laptop_23-2149013922_copy.jpg',
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
           ),
           Column(
@@ -140,9 +137,21 @@ class _Section4WidgetState extends State<Section4Widget>
                 ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 64.0),
                 child: Container(
-                  width: 600.0,
+                  width: () {
+                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                      return MediaQuery.sizeOf(context).width;
+                    } else if (MediaQuery.sizeOf(context).width <
+                        kBreakpointMedium) {
+                      return MediaQuery.sizeOf(context).width;
+                    } else if (MediaQuery.sizeOf(context).width <
+                        kBreakpointLarge) {
+                      return 600.0;
+                    } else {
+                      return 600.0;
+                    }
+                  }(),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.only(
