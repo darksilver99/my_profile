@@ -46,6 +46,13 @@ class _Section1WidgetState extends State<Section1Widget>
             begin: Offset(0.0, -100.0),
             end: Offset(0.0, 0.0),
           ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
         ],
       ),
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -70,6 +77,13 @@ class _Section1WidgetState extends State<Section1Widget>
             begin: Offset(0.0, 100.0),
             end: Offset(0.0, 0.0),
           ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
         ],
       ),
       'buttonOnPageLoadAnimation1': AnimationInfo(
@@ -82,6 +96,13 @@ class _Section1WidgetState extends State<Section1Widget>
             begin: Offset(-100.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
         ],
       ),
       'buttonOnPageLoadAnimation2': AnimationInfo(
@@ -93,6 +114,13 @@ class _Section1WidgetState extends State<Section1Widget>
             duration: 600.0.ms,
             begin: Offset(100.0, 0.0),
             end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
           ),
         ],
       ),
