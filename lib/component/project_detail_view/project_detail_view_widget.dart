@@ -169,40 +169,47 @@ class _ProjectDetailViewWidgetState extends State<ProjectDetailViewWidget> {
                                         (imageListIndex) {
                                       final imageListItem =
                                           imageList[imageListIndex];
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              child:
-                                                  FlutterFlowExpandedImageView(
-                                                image: Image.network(
-                                                  imageListItem,
-                                                  fit: BoxFit.contain,
+                                      return Container(
+                                        width: 300.0,
+                                        height: 500.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                        ),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType.fade,
+                                                child:
+                                                    FlutterFlowExpandedImageView(
+                                                  image: Image.network(
+                                                    imageListItem,
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                  allowRotation: false,
+                                                  tag: imageListItem,
+                                                  useHeroAnimation: true,
                                                 ),
-                                                allowRotation: false,
-                                                tag: imageListItem,
-                                                useHeroAnimation: true,
                                               ),
-                                            ),
-                                          );
-                                        },
-                                        child: Hero(
-                                          tag: imageListItem,
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              imageListItem,
-                                              width: 300.0,
-                                              height: 500.0,
-                                              fit: BoxFit.cover,
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag: imageListItem,
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                imageListItem,
+                                                width: 300.0,
+                                                height: 500.0,
+                                                fit: BoxFit.contain,
+                                              ),
                                             ),
                                           ),
                                         ),
