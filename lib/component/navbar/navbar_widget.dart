@@ -1,3 +1,4 @@
+import '/component/upload_project_view/upload_project_view_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -123,14 +124,35 @@ class _NavbarWidgetState extends State<NavbarWidget>
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: Text(
-                  'Contact',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).info,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onLongPress: () async {
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      useSafeArea: true,
+                      context: context,
+                      builder: (context) {
+                        return Padding(
+                          padding: MediaQuery.viewInsetsOf(context),
+                          child: UploadProjectViewWidget(),
+                        );
+                      },
+                    ).then((value) => safeSetState(() {}));
+                  },
+                  child: Text(
+                    'Contact',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).info,
+                          fontSize: 22.0,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
                 ),
               ),
             ],
