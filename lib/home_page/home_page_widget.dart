@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/sections/section1/section1_widget.dart';
 import '/sections/section2/section2_widget.dart';
 import '/sections/section3/section3_widget.dart';
+import '/sections/section4/section4_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -68,6 +69,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       model: _model.section3Model,
                       updateCallback: () => setState(() {}),
                       child: Section3Widget(),
+                    ),
+                    wrapWithModel(
+                      model: _model.section4Model,
+                      updateCallback: () => setState(() {}),
+                      child: Section4Widget(),
                     ),
                     wrapWithModel(
                       model: _model.footerModel,

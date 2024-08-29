@@ -1,7 +1,11 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'section1_model.dart';
@@ -14,8 +18,11 @@ class Section1Widget extends StatefulWidget {
   State<Section1Widget> createState() => _Section1WidgetState();
 }
 
-class _Section1WidgetState extends State<Section1Widget> {
+class _Section1WidgetState extends State<Section1Widget>
+    with TickerProviderStateMixin {
   late Section1Model _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -27,6 +34,69 @@ class _Section1WidgetState extends State<Section1Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Section1Model());
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -84,7 +154,7 @@ class _Section1WidgetState extends State<Section1Widget> {
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
@@ -94,7 +164,8 @@ class _Section1WidgetState extends State<Section1Widget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).tertiary,
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
@@ -114,7 +185,7 @@ class _Section1WidgetState extends State<Section1Widget> {
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
@@ -152,7 +223,8 @@ class _Section1WidgetState extends State<Section1Widget> {
                           ),
                           borderRadius: BorderRadius.circular(100.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation1']!),
                     ),
                     Padding(
                       padding:
@@ -184,7 +256,8 @@ class _Section1WidgetState extends State<Section1Widget> {
                           ),
                           borderRadius: BorderRadius.circular(100.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation2']!),
                     ),
                   ],
                 ),

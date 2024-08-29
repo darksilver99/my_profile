@@ -1,6 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,8 +18,11 @@ class Section2Widget extends StatefulWidget {
   State<Section2Widget> createState() => _Section2WidgetState();
 }
 
-class _Section2WidgetState extends State<Section2Widget> {
+class _Section2WidgetState extends State<Section2Widget>
+    with TickerProviderStateMixin {
   late Section2Model _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -27,6 +34,21 @@ class _Section2WidgetState extends State<Section2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Section2Model());
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -76,7 +98,7 @@ class _Section2WidgetState extends State<Section2Widget> {
                   ],
                 ),
               ],
-            ),
+            ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
