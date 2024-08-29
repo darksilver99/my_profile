@@ -1,8 +1,10 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -470,8 +472,45 @@ class _Section4WidgetState extends State<Section4Widget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 32.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                if (_model.formKey.currentState == null ||
+                                    !_model.formKey.currentState!.validate()) {
+                                  return;
+                                }
+
+                                await ContactListRecord.collection
+                                    .doc()
+                                    .set(createContactListRecordData(
+                                      createDate: getCurrentTimestamp,
+                                      status: 0,
+                                      contactName: _model.textController1.text,
+                                      contactPhone: _model.textController2.text,
+                                      contactMail: _model.textController3.text,
+                                      contactDetail:
+                                          _model.textController4.text,
+                                    ));
+                                setState(() {
+                                  _model.textController1?.clear();
+                                  _model.textController2?.clear();
+                                  _model.textController3?.clear();
+                                  _model.textController4?.clear();
+                                });
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('ส่งข้อมูลเรียบร้อยแล้ว'),
+                                      content: Text('กรุณารอการติดต่อกลับ'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('ตกลง'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
                               },
                               text: 'ส่งข้อมูล',
                               options: FFButtonOptions(

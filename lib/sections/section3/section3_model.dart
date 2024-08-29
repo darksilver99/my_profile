@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/project_block_view_widget.dart';
+import '/component/project_block_view/project_block_view_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
