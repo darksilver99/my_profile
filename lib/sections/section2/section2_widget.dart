@@ -147,7 +147,7 @@ class _Section2WidgetState extends State<Section2Widget>
         mainAxisSize: MainAxisSize.max,
         children: [
           VisibilityDetector(
-            key: Key('about-section'),
+            key: Key('about1'),
             onVisibilityChanged: (VisibilityInfo info) async {
               if (info.visibleFraction > 0.5) {
                 if (animationsMap[
@@ -209,8 +209,20 @@ class _Section2WidgetState extends State<Section2Widget>
                     verticalDirection: VerticalDirection.down,
                     clipBehavior: Clip.none,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(),
+                      VisibilityDetector(
+                        key: Key('containerOnActionTriggerAnimation1'),
+                        onVisibilityChanged: (VisibilityInfo info) async {
+                          if (info.visibleFraction > 0.5) {
+                            if (animationsMap[
+                            'containerOnActionTriggerAnimation1'] !=
+                                null) {
+                              await animationsMap[
+                              'containerOnActionTriggerAnimation1']!
+                                  .controller
+                                  .forward(from: 0.0);
+                            }
+                          }
+                        },
                         child: Container(
                           width: () {
                             if (MediaQuery.sizeOf(context).width <
@@ -565,8 +577,20 @@ class _Section2WidgetState extends State<Section2Widget>
                           animationsMap['containerOnActionTriggerAnimation1']!,
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(),
+                      VisibilityDetector(
+                        key: Key('containerOnActionTriggerAnimation2'),
+                        onVisibilityChanged: (VisibilityInfo info) async {
+                          if (info.visibleFraction > 0.5) {
+                            if (animationsMap[
+                            'containerOnActionTriggerAnimation2'] !=
+                                null) {
+                              await animationsMap[
+                              'containerOnActionTriggerAnimation2']!
+                                  .controller
+                                  .forward(from: 0.0);
+                            }
+                          }
+                        },
                         child: Container(
                           width: () {
                             if (MediaQuery.sizeOf(context).width <
@@ -737,8 +761,20 @@ class _Section2WidgetState extends State<Section2Widget>
                           animationsMap['containerOnActionTriggerAnimation2']!,
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(),
+                      VisibilityDetector(
+                        key: Key('containerOnActionTriggerAnimation3'),
+                        onVisibilityChanged: (VisibilityInfo info) async {
+                          if (info.visibleFraction > 0.5) {
+                            if (animationsMap[
+                            'containerOnActionTriggerAnimation3'] !=
+                                null) {
+                              await animationsMap[
+                              'containerOnActionTriggerAnimation3']!
+                                  .controller
+                                  .forward(from: 0.0);
+                            }
+                          }
+                        },
                         child: Container(
                           width: () {
                             if (MediaQuery.sizeOf(context).width <
