@@ -157,7 +157,6 @@ class _Section2WidgetState extends State<Section2Widget>
                   'rowOnActionTriggerAnimation']!
                       .controller
                       .forward(from: 0.0);
-                  _model.isAnimated = true;
                 }
               }
             },
@@ -773,6 +772,7 @@ class _Section2WidgetState extends State<Section2Widget>
                               'containerOnActionTriggerAnimation3']!
                                   .controller
                                   .forward(from: 0.0);
+                              _model.isAnimated = true;
                             }
                           }
                         },
