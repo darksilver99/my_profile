@@ -1,9 +1,10 @@
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'project_detail_view_model.dart';
 export 'project_detail_view_model.dart';
@@ -141,34 +142,78 @@ class _ProjectDetailViewWidgetState extends State<ProjectDetailViewWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: Builder(
-                        builder: (context) {
-                          final imageList =
-                              widget!.projectDoc?.images?.toList() ?? [];
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 6.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Builder(
+                                builder: (context) {
+                                  final imageList =
+                                      widget!.projectDoc?.images?.toList() ??
+                                          [];
 
-                          return MasonryGridView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
+                                  return Wrap(
+                                    spacing: 16.0,
+                                    runSpacing: 16.0,
+                                    alignment: WrapAlignment.start,
+                                    crossAxisAlignment:
+                                        WrapCrossAlignment.start,
+                                    direction: Axis.horizontal,
+                                    runAlignment: WrapAlignment.start,
+                                    verticalDirection: VerticalDirection.down,
+                                    clipBehavior: Clip.none,
+                                    children: List.generate(imageList.length,
+                                        (imageListIndex) {
+                                      final imageListItem =
+                                          imageList[imageListIndex];
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            PageTransition(
+                                              type: PageTransitionType.fade,
+                                              child:
+                                                  FlutterFlowExpandedImageView(
+                                                image: Image.network(
+                                                  imageListItem,
+                                                  fit: BoxFit.contain,
+                                                ),
+                                                allowRotation: false,
+                                                tag: imageListItem,
+                                                useHeroAnimation: true,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Hero(
+                                          tag: imageListItem,
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.network(
+                                              imageListItem,
+                                              width: 300.0,
+                                              height: 500.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
                             ),
-                            crossAxisSpacing: 10.0,
-                            mainAxisSpacing: 10.0,
-                            itemCount: imageList.length,
-                            shrinkWrap: true,
-                            itemBuilder: (context, imageListIndex) {
-                              final imageListItem = imageList[imageListIndex];
-                              return ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  imageListItem,
-                                  fit: BoxFit.cover,
-                                ),
-                              );
-                            },
-                          );
-                        },
+                          ),
+                        ],
                       ),
                     ),
                   ]
