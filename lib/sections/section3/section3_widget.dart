@@ -1,7 +1,12 @@
+import '/backend/backend.dart';
+import '/components/project_block_view_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -34,6 +39,22 @@ class _Section3WidgetState extends State<Section3Widget>
     super.initState();
     _model = createModel(context, () => Section3Model());
 
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.rsProject = await queryProjectListRecordOnce(
+        queryBuilder: (projectListRecord) => projectListRecord.where(
+          'status',
+          isEqualTo: 1,
+        ),
+        limit: 6,
+      );
+      _model.projectList = functions
+          .randomProjectList(_model.rsProject?.toList())
+          .toList()
+          .cast<ProjectListRecord>();
+      setState(() {});
+    });
+
     animationsMap.addAll({
       'rowOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -61,164 +82,89 @@ class _Section3WidgetState extends State<Section3Widget>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      'Portfolio',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            fontSize: 54.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                    SizedBox(
-                      width: 220.0,
-                      child: Divider(
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).tertiary,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
-                  child: Wrap(
-                    spacing: 0.0,
-                    runSpacing: 0.0,
-                    alignment: WrapAlignment.center,
-                    crossAxisAlignment: WrapCrossAlignment.start,
-                    direction: Axis.horizontal,
-                    runAlignment: WrapAlignment.start,
-                    verticalDirection: VerticalDirection.down,
-                    clipBehavior: Clip.none,
+    return Visibility(
+      visible: _model.projectList.isNotEmpty,
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).secondaryBackground,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
-                        ),
+                      Text(
+                        'Portfolio',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              fontSize: 54.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                      SizedBox(
+                        width: 220.0,
+                        child: Divider(
+                          thickness: 3.0,
+                          color: FlutterFlowTheme.of(context).tertiary,
                         ),
                       ),
                     ],
                   ),
+                ],
+              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+                      child: Builder(
+                        builder: (context) {
+                          final projectListView = _model.projectList.toList();
+
+                          return Wrap(
+                            spacing: 0.0,
+                            runSpacing: 0.0,
+                            alignment: WrapAlignment.start,
+                            crossAxisAlignment: WrapCrossAlignment.start,
+                            direction: Axis.horizontal,
+                            runAlignment: WrapAlignment.start,
+                            verticalDirection: VerticalDirection.down,
+                            clipBehavior: Clip.none,
+                            children: List.generate(projectListView.length,
+                                (projectListViewIndex) {
+                              final projectListViewItem =
+                                  projectListView[projectListViewIndex];
+                              return ProjectBlockViewWidget(
+                                key: Key(
+                                    'Keyvl0_${projectListViewIndex}_of_${projectListView.length}'),
+                                image: projectListViewItem.images.first,
+                              );
+                            }),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
