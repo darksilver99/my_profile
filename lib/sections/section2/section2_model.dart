@@ -11,6 +11,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Section2Model extends FlutterFlowModel<Section2Widget> {
+  ///  Local state fields for this component.
+
+  bool isAnimated = false;
+
   @override
   void initState(BuildContext context) {}
 
