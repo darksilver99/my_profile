@@ -36,8 +36,9 @@ class _Section2WidgetState extends State<Section2Widget>
     _model = createModel(context, () => Section2Model());
 
     animationsMap.addAll({
-      'rowOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
+      'rowOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
@@ -49,6 +50,12 @@ class _Section2WidgetState extends State<Section2Widget>
         ],
       ),
     });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -98,7 +105,9 @@ class _Section2WidgetState extends State<Section2Widget>
                   ],
                 ),
               ],
-            ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+            ).animateOnActionTrigger(
+              animationsMap['rowOnActionTriggerAnimation']!,
+            ),
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
@@ -689,18 +698,37 @@ class _Section2WidgetState extends State<Section2Widget>
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Text(
-                                              'ประวัติการทำงาน',
-                                              textAlign: TextAlign.start,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    fontSize: 28.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (animationsMap[
+                                                        'rowOnActionTriggerAnimation'] !=
+                                                    null) {
+                                                  await animationsMap[
+                                                          'rowOnActionTriggerAnimation']!
+                                                      .controller
+                                                      .forward(from: 0.0);
+                                                }
+                                              },
+                                              child: Text(
+                                                'ประวัติการทำงาน',
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 28.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
                                             ),
                                           ],
                                         ),
