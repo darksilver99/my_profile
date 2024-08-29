@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/component/project_detail_view/project_detail_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'project_block_view_widget.dart' show ProjectBlockViewWidget;

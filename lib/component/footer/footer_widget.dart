@@ -42,7 +42,7 @@ class _FooterWidgetState extends State<FooterWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 250.0,
+      height: 150.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -72,6 +72,7 @@ class _FooterWidgetState extends State<FooterWidget> {
             '2024',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Readex Pro',
+                  fontSize: 24.0,
                   letterSpacing: 0.0,
                 ),
           ),
