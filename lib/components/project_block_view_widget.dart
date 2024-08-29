@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +10,10 @@ export 'project_block_view_model.dart';
 class ProjectBlockViewWidget extends StatefulWidget {
   const ProjectBlockViewWidget({
     super.key,
-    this.image,
+    required this.projectDoc,
   });
 
-  final String? image;
+  final ProjectListRecord? projectDoc;
 
   @override
   State<ProjectBlockViewWidget> createState() => _ProjectBlockViewWidgetState();
@@ -53,20 +54,55 @@ class _ProjectBlockViewWidgetState extends State<ProjectBlockViewWidget> {
       child: MouseRegion(
         opaque: false,
         cursor: MouseCursor.defer ?? MouseCursor.defer,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
-          child: Image.network(
-            widget!.image!,
-            width: 300.0,
-            height: 200.0,
-            fit: BoxFit.cover,
-          ),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(0.0),
+              child: Image.network(
+                widget!.projectDoc!.images.first,
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+            if (_model.isHover)
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color(0x7F14181B),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      valueOrDefault<String>(
+                        widget!.projectDoc?.subject,
+                        '-',
+                      ),
+                      maxLines: 2,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).info,
+                            fontSize: 32.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
         ),
         onEnter: ((event) async {
           setState(() => _model.mouseRegionHovered = true);
+          _model.isHover = true;
+          setState(() {});
         }),
         onExit: ((event) async {
           setState(() => _model.mouseRegionHovered = false);
+          _model.isHover = false;
+          setState(() {});
         }),
       ),
     );

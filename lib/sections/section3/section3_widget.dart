@@ -152,7 +152,7 @@ class _Section3WidgetState extends State<Section3Widget>
                               return ProjectBlockViewWidget(
                                 key: Key(
                                     'Keyvl0_${projectListViewIndex}_of_${projectListView.length}'),
-                                image: projectListViewItem.images.first,
+                                projectDoc: projectListViewItem,
                               );
                             }),
                           );
