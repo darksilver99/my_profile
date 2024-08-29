@@ -149,7 +149,7 @@ class _Section2WidgetState extends State<Section2Widget>
           VisibilityDetector(
             key: Key('about1'),
             onVisibilityChanged: (VisibilityInfo info) async {
-              if (info.visibleFraction > 0.5) {
+              if (info.visibleFraction > 0.5 && !_model.isAnimated) {
                 if (animationsMap[
                 'rowOnActionTriggerAnimation'] !=
                     null) {
@@ -157,6 +157,7 @@ class _Section2WidgetState extends State<Section2Widget>
                   'rowOnActionTriggerAnimation']!
                       .controller
                       .forward(from: 0.0);
+                  _model.isAnimated = true;
                 }
               }
             },
@@ -212,7 +213,7 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation1'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          if (info.visibleFraction > 0.5) {
+                          if (info.visibleFraction > 0.5 && !_model.isAnimated) {
                             if (animationsMap[
                             'containerOnActionTriggerAnimation1'] !=
                                 null) {
@@ -580,7 +581,7 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation2'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          if (info.visibleFraction > 0.5) {
+                          if (info.visibleFraction > 0.5 && !_model.isAnimated) {
                             if (animationsMap[
                             'containerOnActionTriggerAnimation2'] !=
                                 null) {
@@ -764,7 +765,7 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation3'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          if (info.visibleFraction > 0.5) {
+                          if (info.visibleFraction > 0.5 && !_model.isAnimated) {
                             if (animationsMap[
                             'containerOnActionTriggerAnimation3'] !=
                                 null) {
