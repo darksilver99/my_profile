@@ -1,6 +1,11 @@
+import '/component/footer/footer_widget.dart';
+import '/component/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/sections/section1/section1_widget.dart';
+import '/sections/section2/section2_widget.dart';
+import '/sections/section3/section3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -41,27 +46,43 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            'Page Title',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
-          ),
-          actions: [],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    wrapWithModel(
+                      model: _model.section1Model,
+                      updateCallback: () => setState(() {}),
+                      child: Section1Widget(),
+                    ),
+                    wrapWithModel(
+                      model: _model.section2Model,
+                      updateCallback: () => setState(() {}),
+                      child: Section2Widget(),
+                    ),
+                    wrapWithModel(
+                      model: _model.section3Model,
+                      updateCallback: () => setState(() {}),
+                      child: Section3Widget(),
+                    ),
+                    wrapWithModel(
+                      model: _model.footerModel,
+                      updateCallback: () => setState(() {}),
+                      child: FooterWidget(),
+                    ),
+                  ],
+                ),
+              ),
+              wrapWithModel(
+                model: _model.navbarModel,
+                updateCallback: () => setState(() {}),
+                child: NavbarWidget(),
+              ),
+            ],
           ),
         ),
       ),
