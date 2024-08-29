@@ -25,11 +25,3 @@ List<ProjectListRecord> randomProjectList(
 
   return shuffledList;
 }
-
-List<FFUploadedFile> addListImageToListImage(
-  List<FFUploadedFile> currentList,
-  List<FFUploadedFile> newList,
-) {
-  currentList.addAll(newList);
-  return currentList;
-}
