@@ -46,6 +46,11 @@ class ProjectListRecord extends FirestoreRecord {
   List<String> get images => _images ?? const [];
   bool hasImages() => _images != null;
 
+  // "seq" field.
+  int? _seq;
+  int get seq => _seq ?? 0;
+  bool hasSeq() => _seq != null;
+
   void _initializeFields() {
     _createDate = snapshotData['create_date'] as DateTime?;
     _status = castToType<int>(snapshotData['status']);
@@ -53,6 +58,7 @@ class ProjectListRecord extends FirestoreRecord {
     _subject = snapshotData['subject'] as String?;
     _detail = snapshotData['detail'] as String?;
     _images = getDataList(snapshotData['images']);
+    _seq = castToType<int>(snapshotData['seq']);
   }
 
   static CollectionReference get collection =>
@@ -95,6 +101,7 @@ Map<String, dynamic> createProjectListRecordData({
   int? hits,
   String? subject,
   String? detail,
+  int? seq,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,6 +110,7 @@ Map<String, dynamic> createProjectListRecordData({
       'hits': hits,
       'subject': subject,
       'detail': detail,
+      'seq': seq,
     }.withoutNulls,
   );
 
@@ -120,12 +128,20 @@ class ProjectListRecordDocumentEquality implements Equality<ProjectListRecord> {
         e1?.hits == e2?.hits &&
         e1?.subject == e2?.subject &&
         e1?.detail == e2?.detail &&
-        listEquality.equals(e1?.images, e2?.images);
+        listEquality.equals(e1?.images, e2?.images) &&
+        e1?.seq == e2?.seq;
   }
 
   @override
-  int hash(ProjectListRecord? e) => const ListEquality().hash(
-      [e?.createDate, e?.status, e?.hits, e?.subject, e?.detail, e?.images]);
+  int hash(ProjectListRecord? e) => const ListEquality().hash([
+        e?.createDate,
+        e?.status,
+        e?.hits,
+        e?.subject,
+        e?.detail,
+        e?.images,
+        e?.seq
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ProjectListRecord;

@@ -1,3 +1,4 @@
+import '/component/add_project_view/add_project_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,38 @@ class _FooterWidgetState extends State<FooterWidget> {
       width: double.infinity,
       height: 250.0,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).accent4,
+        color: FlutterFlowTheme.of(context).secondaryBackground,
+      ),
+      child: Align(
+        alignment: AlignmentDirectional(0.0, 0.0),
+        child: InkWell(
+          splashColor: Colors.transparent,
+          focusColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onLongPress: () async {
+            await showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              enableDrag: false,
+              useSafeArea: true,
+              context: context,
+              builder: (context) {
+                return Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: AddProjectViewWidget(),
+                );
+              },
+            ).then((value) => safeSetState(() {}));
+          },
+          child: Text(
+            '2024',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Readex Pro',
+                  letterSpacing: 0.0,
+                ),
+          ),
+        ),
       ),
     );
   }
