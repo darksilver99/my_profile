@@ -80,7 +80,7 @@ class _Section2WidgetState extends State<Section2Widget> {
           ),
           Expanded(
             child: Row(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Expanded(
                   child: Align(

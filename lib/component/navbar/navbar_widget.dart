@@ -39,65 +39,78 @@ class _NavbarWidgetState extends State<NavbarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 60.0,
-      decoration: BoxDecoration(),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-              child: Text(
-                'About',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).info,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
+    return Visibility(
+      visible: () {
+        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+          return false;
+        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+          return true;
+        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+          return true;
+        } else {
+          return true;
+        }
+      }(),
+      child: Container(
+        width: double.infinity,
+        height: 60.0,
+        decoration: BoxDecoration(),
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                child: Text(
+                  'About',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).info,
+                        fontSize: 22.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-              child: Text(
-                'Service',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).info,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                child: Text(
+                  'Service',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).info,
+                        fontSize: 22.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-              child: Text(
-                'Portfolio',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).info,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                child: Text(
+                  'Portfolio',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).info,
+                        fontSize: 22.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-              child: Text(
-                'Contact',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).info,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                child: Text(
+                  'Contact',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).info,
+                        fontSize: 22.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
