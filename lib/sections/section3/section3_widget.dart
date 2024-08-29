@@ -77,123 +77,113 @@ class _Section3WidgetState extends State<Section3Widget> {
               ],
             ),
           ),
-          Expanded(
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Wrap(
-                    spacing: 0.0,
-                    runSpacing: 0.0,
-                    alignment: WrapAlignment.center,
-                    crossAxisAlignment: WrapCrossAlignment.start,
-                    direction: Axis.horizontal,
-                    runAlignment: WrapAlignment.start,
-                    verticalDirection: VerticalDirection.down,
-                    clipBehavior: Clip.none,
-                    children: [
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Wrap(
+                  spacing: 0.0,
+                  runSpacing: 0.0,
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                    ),
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                    ),
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                    ),
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                    ),
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                    ),
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                    ),
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                      Container(
-                        width: 350.0,
-                        height: 350.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 3.0,
-                          ),
+                    ),
+                    Container(
+                      width: 350.0,
+                      height: 350.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 3.0,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
