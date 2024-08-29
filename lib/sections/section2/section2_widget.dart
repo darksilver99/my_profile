@@ -11,6 +11,8 @@ import 'package:provider/provider.dart';
 import 'section2_model.dart';
 export 'section2_model.dart';
 
+import 'package:visibility_detector/visibility_detector.dart';
+
 class Section2Widget extends StatefulWidget {
   const Section2Widget({super.key});
 
@@ -77,8 +79,20 @@ class _Section2WidgetState extends State<Section2Widget>
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Container(
-            decoration: BoxDecoration(),
+          VisibilityDetector(
+            key: Key('about-section'),
+            onVisibilityChanged: (VisibilityInfo info) async {
+              if (info.visibleFraction > 0.5) {
+                if (animationsMap[
+                'rowOnActionTriggerAnimation'] !=
+                    null) {
+                  await animationsMap[
+                  'rowOnActionTriggerAnimation']!
+                      .controller
+                      .forward(from: 0.0);
+                }
+              }
+            },
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
               child: Row(
