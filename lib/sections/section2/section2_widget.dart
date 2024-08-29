@@ -49,6 +49,73 @@ class _Section2WidgetState extends State<Section2Widget>
             begin: Offset(0.0, 100.0),
             end: Offset(0.0, 0.0),
           ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnActionTriggerAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnActionTriggerAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnActionTriggerAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
         ],
       ),
     });
@@ -488,6 +555,8 @@ class _Section2WidgetState extends State<Section2Widget>
                             ],
                           ),
                         ),
+                      ).animateOnActionTrigger(
+                        animationsMap['containerOnActionTriggerAnimation1']!,
                       ),
                       Container(
                         width: () {
@@ -652,6 +721,8 @@ class _Section2WidgetState extends State<Section2Widget>
                             ],
                           ),
                         ),
+                      ).animateOnActionTrigger(
+                        animationsMap['containerOnActionTriggerAnimation2']!,
                       ),
                       Container(
                         width: () {
@@ -847,6 +918,8 @@ class _Section2WidgetState extends State<Section2Widget>
                             ],
                           ),
                         ),
+                      ).animateOnActionTrigger(
+                        animationsMap['containerOnActionTriggerAnimation3']!,
                       ),
                     ],
                   ),
