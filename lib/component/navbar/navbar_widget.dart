@@ -76,7 +76,9 @@ class _NavbarWidgetState extends State<NavbarWidget>
       child: Container(
         width: double.infinity,
         height: 60.0,
-        decoration: BoxDecoration(),
+        decoration: BoxDecoration(
+          color: Color(0xB2000000),
+        ),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
           child: Row(
