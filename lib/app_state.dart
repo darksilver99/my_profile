@@ -24,6 +24,19 @@ class FFAppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  // custom
+  dynamic _scrollController;
+  dynamic get scrollController => _scrollController;
+  set scrollController(dynamic value) {
+    _scrollController = value;
+  }
+
+  dynamic _aboutKey;
+  dynamic get aboutKey => _aboutKey;
+  set aboutKey(dynamic value) {
+    _aboutKey = value;
+  }
+
   dynamic _test;
   dynamic get test => _test;
   set test(dynamic value) {

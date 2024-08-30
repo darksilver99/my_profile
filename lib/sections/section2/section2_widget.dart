@@ -26,6 +26,8 @@ class _Section2WidgetState extends State<Section2Widget>
 
   final animationsMap = <String, AnimationInfo>{};
 
+  final GlobalKey aboutKey = GlobalKey();
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -127,6 +129,8 @@ class _Section2WidgetState extends State<Section2Widget>
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+
+    FFAppState().aboutKey = aboutKey;
   }
 
   @override
@@ -139,6 +143,7 @@ class _Section2WidgetState extends State<Section2Widget>
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: aboutKey,
       width: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,

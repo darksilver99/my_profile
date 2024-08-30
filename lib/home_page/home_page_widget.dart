@@ -28,6 +28,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -49,6 +50,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           },
         ),
       });
+
+      FFAppState().scrollController = _scrollController;
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -73,6 +76,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           child: Stack(
             children: [
               SingleChildScrollView(
+                controller: _scrollController,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
