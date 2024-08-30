@@ -26,6 +26,8 @@ class _Section1WidgetState extends State<Section1Widget>
 
   final animationsMap = <String, AnimationInfo>{};
 
+  final GlobalKey section1Key = GlobalKey();
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -129,6 +131,8 @@ class _Section1WidgetState extends State<Section1Widget>
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+
+    FFAppState().section1Key = section1Key;
   }
 
   @override
@@ -141,6 +145,7 @@ class _Section1WidgetState extends State<Section1Widget>
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: section1Key,
       width: double.infinity,
       height: MediaQuery.sizeOf(context).height * 1.0,
       child: Stack(
