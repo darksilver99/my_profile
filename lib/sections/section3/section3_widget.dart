@@ -1,3 +1,5 @@
+import 'package:visibility_detector/visibility_detector.dart';
+
 import '/backend/backend.dart';
 import '/component/project_block_view/project_block_view_widget.dart';
 import '/component/project_list_view/project_list_view_widget.dart';
@@ -157,8 +159,22 @@ class _Section3WidgetState extends State<Section3Widget>
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('rowOnActionTriggerAnimation1'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation1'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated = false;
+                    }
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
                   child: Row(
@@ -194,8 +210,22 @@ class _Section3WidgetState extends State<Section3Widget>
                   ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('rowOnActionTriggerAnimation2'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation2'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated2) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated2 = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated2 = false;
+                    }
+                  }
+                },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,8 +271,22 @@ class _Section3WidgetState extends State<Section3Widget>
                   animationsMap['rowOnActionTriggerAnimation2']!,
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('rowOnActionTriggerAnimation3'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation3'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated3) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated3 = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated3 = false;
+                    }
+                  }
+                },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
