@@ -188,7 +188,7 @@ class _Section1WidgetState extends State<Section1Widget>
                   AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation1'];
                   if (info.visibleFraction > 0.5) {
                     if (widgetAnimate != null && !_model.isAnimated) {
-                      await widgetAnimate.controller.forward(from: 0.0);
+                       widgetAnimate.controller.forward(from: 0.0);
                       _model.isAnimated = true;
                     }
                   } else if (info.visibleFraction <= 0) {
@@ -229,7 +229,7 @@ class _Section1WidgetState extends State<Section1Widget>
                   AnimationInfo? widgetAnimate = animationsMap['containerOnActionTriggerAnimation'];
                   if (info.visibleFraction > 0.5) {
                     if (widgetAnimate != null && !_model.isAnimated2) {
-                      await widgetAnimate.controller.forward(from: 0.0);
+                       widgetAnimate.controller.forward(from: 0.0);
                       _model.isAnimated2 = true;
                     }
                   } else if (info.visibleFraction <= 0) {
@@ -258,7 +258,7 @@ class _Section1WidgetState extends State<Section1Widget>
                   AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation2'];
                   if (info.visibleFraction > 0.5) {
                     if (widgetAnimate != null && !_model.isAnimated3) {
-                      await widgetAnimate.controller.forward(from: 0.0);
+                       widgetAnimate.controller.forward(from: 0.0);
                       _model.isAnimated3 = true;
                     }
                   } else if (info.visibleFraction <= 0) {
