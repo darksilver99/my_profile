@@ -29,4 +29,10 @@ class FFAppState extends ChangeNotifier {
   set test(dynamic value) {
     _test = value;
   }
+
+  double _scrollDistance = 0.0;
+  double get scrollDistance => _scrollDistance;
+  set scrollDistance(double value) {
+    _scrollDistance = value;
+  }
 }
