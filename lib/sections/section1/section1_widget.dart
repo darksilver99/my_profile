@@ -303,7 +303,7 @@ class _Section1WidgetState extends State<Section1Widget>
                       _model.isAnimated4 = true;
                     }
                     if (widgetAnimate2 != null && !_model.isAnimated5) {
-                      await widgetAnimate2.controller.forward(from: 0.0);
+                       widgetAnimate2.controller.forward(from: 0.0);
                       _model.isAnimated5 = true;
                     }
                   } else if (info.visibleFraction <= 0) {
@@ -312,7 +312,7 @@ class _Section1WidgetState extends State<Section1Widget>
                       _model.isAnimated4 = false;
                     }
                     if (widgetAnimate2 != null) {
-                      await widgetAnimate2.controller.reverse(from: 0.0);
+                       widgetAnimate2.controller.reverse(from: 0.0);
                       _model.isAnimated5 = false;
                     }
                   }
