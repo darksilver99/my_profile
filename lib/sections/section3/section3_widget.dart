@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/component/project_block_view/project_block_view_widget.dart';
+import '/component/project_list_view/project_list_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -153,8 +154,20 @@ class _Section3WidgetState extends State<Section3Widget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        enableDrag: false,
+                        useSafeArea: true,
+                        context: context,
+                        builder: (context) {
+                          return Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: ProjectListViewWidget(),
+                          );
+                        },
+                      ).then((value) => safeSetState(() {}));
                     },
                     text: 'View all',
                     options: FFButtonOptions(

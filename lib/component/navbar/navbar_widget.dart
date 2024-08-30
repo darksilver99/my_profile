@@ -87,50 +87,86 @@ class _NavbarWidgetState extends State<NavbarWidget>
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: Text(
-                  'About',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).info,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await Future.delayed(const Duration(milliseconds: 1));
+                  },
+                  child: Text(
+                    'About',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).info,
+                          fontSize: 22.0,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: Text(
-                  'Service',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).info,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await Future.delayed(const Duration(milliseconds: 1));
+                  },
+                  child: Text(
+                    'Service',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).info,
+                          fontSize: 22.0,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: Text(
-                  'Portfolio',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).info,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await Future.delayed(const Duration(milliseconds: 1));
+                  },
+                  child: Text(
+                    'Portfolio',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).info,
+                          fontSize: 22.0,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: Text(
-                  'Contact',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).info,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await Future.delayed(const Duration(milliseconds: 1));
+                  },
+                  child: Text(
+                    'Contact',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).info,
+                          fontSize: 22.0,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
                 ),
               ),
             ],

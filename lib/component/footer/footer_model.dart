@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/component/add_project_view/add_project_view_widget.dart';
+import '/component/pass_view/pass_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'footer_widget.dart' show FooterWidget;

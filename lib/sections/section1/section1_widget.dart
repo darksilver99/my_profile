@@ -225,8 +225,8 @@ class _Section1WidgetState extends State<Section1Widget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          await Future.delayed(const Duration(milliseconds: 1));
                         },
                         text: 'About',
                         options: FFButtonOptions(
@@ -258,8 +258,8 @@ class _Section1WidgetState extends State<Section1Widget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          await Future.delayed(const Duration(milliseconds: 1));
                         },
                         text: 'Portfolio',
                         options: FFButtonOptions(

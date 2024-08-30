@@ -88,6 +88,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 updateCallback: () => setState(() {}),
                 child: NavbarWidget(),
               ),
+              Align(
+                alignment: AlignmentDirectional(1.0, 1.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 16.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await Future.delayed(const Duration(milliseconds: 1));
+                    },
+                    child: Container(
+                      width: 60.0,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: Color(0x94000000),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Icon(
+                          Icons.keyboard_arrow_up_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 36.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

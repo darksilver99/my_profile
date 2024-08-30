@@ -21,8 +21,14 @@ class MyProfileConfigRecord extends FirestoreRecord {
   int get hits => _hits ?? 0;
   bool hasHits() => _hits != null;
 
+  // "password_to_add_project" field.
+  String? _passwordToAddProject;
+  String get passwordToAddProject => _passwordToAddProject ?? '';
+  bool hasPasswordToAddProject() => _passwordToAddProject != null;
+
   void _initializeFields() {
     _hits = castToType<int>(snapshotData['hits']);
+    _passwordToAddProject = snapshotData['password_to_add_project'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -61,10 +67,12 @@ class MyProfileConfigRecord extends FirestoreRecord {
 
 Map<String, dynamic> createMyProfileConfigRecordData({
   int? hits,
+  String? passwordToAddProject,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'hits': hits,
+      'password_to_add_project': passwordToAddProject,
     }.withoutNulls,
   );
 
@@ -77,11 +85,13 @@ class MyProfileConfigRecordDocumentEquality
 
   @override
   bool equals(MyProfileConfigRecord? e1, MyProfileConfigRecord? e2) {
-    return e1?.hits == e2?.hits;
+    return e1?.hits == e2?.hits &&
+        e1?.passwordToAddProject == e2?.passwordToAddProject;
   }
 
   @override
-  int hash(MyProfileConfigRecord? e) => const ListEquality().hash([e?.hits]);
+  int hash(MyProfileConfigRecord? e) =>
+      const ListEquality().hash([e?.hits, e?.passwordToAddProject]);
 
   @override
   bool isValidKey(Object? o) => o is MyProfileConfigRecord;
