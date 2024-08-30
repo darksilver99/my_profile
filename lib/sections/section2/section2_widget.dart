@@ -1,3 +1,5 @@
+import 'package:my_profile/custom_toon/solo.dart';
+
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -154,16 +156,7 @@ class _Section2WidgetState extends State<Section2Widget>
           VisibilityDetector(
             key: Key('about1'),
             onVisibilityChanged: (VisibilityInfo info) async {
-              if (info.visibleFraction > 0.5 && !_model.isAnimated) {
-                if (animationsMap[
-                'rowOnActionTriggerAnimation'] !=
-                    null) {
-                  await animationsMap[
-                  'rowOnActionTriggerAnimation']!
-                      .controller
-                      .forward(from: 0.0);
-                }
-              }
+              await animateWidget(info, animationsMap['rowOnActionTriggerAnimation']);
             },
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
@@ -217,16 +210,7 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation1'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          if (info.visibleFraction > 0.5 && !_model.isAnimated) {
-                            if (animationsMap[
-                            'containerOnActionTriggerAnimation1'] !=
-                                null) {
-                              await animationsMap[
-                              'containerOnActionTriggerAnimation1']!
-                                  .controller
-                                  .forward(from: 0.0);
-                            }
-                          }
+                          await animateWidget(info, animationsMap['containerOnActionTriggerAnimation1']);
                         },
                         child: Container(
                           width: () {
@@ -585,16 +569,7 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation2'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          if (info.visibleFraction > 0.5 && !_model.isAnimated) {
-                            if (animationsMap[
-                            'containerOnActionTriggerAnimation2'] !=
-                                null) {
-                              await animationsMap[
-                              'containerOnActionTriggerAnimation2']!
-                                  .controller
-                                  .forward(from: 0.0);
-                            }
-                          }
+                          await animateWidget(info, animationsMap['containerOnActionTriggerAnimation2']);
                         },
                         child: Container(
                           width: () {
@@ -769,17 +744,7 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation3'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          if (info.visibleFraction > 0.5 && !_model.isAnimated) {
-                            if (animationsMap[
-                            'containerOnActionTriggerAnimation3'] !=
-                                null) {
-                              await animationsMap[
-                              'containerOnActionTriggerAnimation3']!
-                                  .controller
-                                  .forward(from: 0.0);
-                              _model.isAnimated = true;
-                            }
-                          }
+                          await animateWidget(info, animationsMap['containerOnActionTriggerAnimation3']);
                         },
                         child: Container(
                           width: () {

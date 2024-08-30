@@ -127,7 +127,7 @@ class _NavbarWidgetState extends State<NavbarWidget>
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       await Future.delayed(const Duration(milliseconds: 1));
-                      await Future.delayed(const Duration(milliseconds: 1));
+                      scrollToSection(FFAppState().portfolioKey);
                     },
                     child: Text(
                       'Portfolio',
