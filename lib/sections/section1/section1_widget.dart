@@ -36,29 +36,8 @@ class _Section1WidgetState extends State<Section1Widget>
     _model = createModel(context, () => Section1Model());
 
     animationsMap.addAll({
-      'rowOnActionTriggerAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, -100.0),
-            end: Offset(0.0, 0.0),
-          ),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
       'rowOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
-        applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
@@ -102,7 +81,7 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
-      'rowOnActionTriggerAnimation2': AnimationInfo(
+      'rowOnActionTriggerAnimation': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
         effectsBuilder: () => [
@@ -289,12 +268,8 @@ class _Section1WidgetState extends State<Section1Widget>
                         ),
                       ),
                     ],
-                  )
-                      .animateOnPageLoad(
-                          animationsMap['rowOnPageLoadAnimation1']!)
-                      .animateOnActionTrigger(
-                        animationsMap['rowOnActionTriggerAnimation1']!,
-                      ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation1']!),
                 ),
               ),
               Container(
@@ -340,7 +315,7 @@ class _Section1WidgetState extends State<Section1Widget>
                       .animateOnPageLoad(
                           animationsMap['rowOnPageLoadAnimation2']!)
                       .animateOnActionTrigger(
-                        animationsMap['rowOnActionTriggerAnimation2']!,
+                        animationsMap['rowOnActionTriggerAnimation']!,
                       ),
                 ),
               ),
