@@ -96,7 +96,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       updateCallback: () => setState(() {}),
                       child: Section4Widget(),
                     ),
-                    if (_model.isLoading)
+                    if (!_model.isLoading)
                       wrapWithModel(
                         model: _model.footerModel,
                         updateCallback: () => setState(() {}),
