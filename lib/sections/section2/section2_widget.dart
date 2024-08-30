@@ -221,7 +221,18 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation1'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          await animateWidget(info, animationsMap['containerOnActionTriggerAnimation1']);
+                          AnimationInfo? rowOnActionTriggerAnimation = animationsMap['containerOnActionTriggerAnimation1'];
+                          if (info.visibleFraction > 0.5) {
+                            if (rowOnActionTriggerAnimation != null && !_model.isAnimated2) {
+                              await rowOnActionTriggerAnimation.controller.forward(from: 0.0);
+                              _model.isAnimated2 = true;
+                            }
+                          } else if (info.visibleFraction <= 0) {
+                            if (rowOnActionTriggerAnimation != null) {
+                              await rowOnActionTriggerAnimation.controller.reverse(from: 0.0);
+                              _model.isAnimated2 = false;
+                            }
+                          }
                         },
                         child: Container(
                           width: () {
@@ -580,7 +591,18 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation2'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          await animateWidget(info, animationsMap['containerOnActionTriggerAnimation2']);
+                          AnimationInfo? rowOnActionTriggerAnimation = animationsMap['containerOnActionTriggerAnimation2'];
+                          if (info.visibleFraction > 0.5) {
+                            if (rowOnActionTriggerAnimation != null && !_model.isAnimated3) {
+                              await rowOnActionTriggerAnimation.controller.forward(from: 0.0);
+                              _model.isAnimated3 = true;
+                            }
+                          } else if (info.visibleFraction <= 0) {
+                            if (rowOnActionTriggerAnimation != null) {
+                              await rowOnActionTriggerAnimation.controller.reverse(from: 0.0);
+                              _model.isAnimated3 = false;
+                            }
+                          }
                         },
                         child: Container(
                           width: () {
@@ -755,7 +777,18 @@ class _Section2WidgetState extends State<Section2Widget>
                       VisibilityDetector(
                         key: Key('containerOnActionTriggerAnimation3'),
                         onVisibilityChanged: (VisibilityInfo info) async {
-                          await animateWidget(info, animationsMap['containerOnActionTriggerAnimation3']);
+                          AnimationInfo? rowOnActionTriggerAnimation = animationsMap['containerOnActionTriggerAnimation3'];
+                          if (info.visibleFraction > 0.5) {
+                            if (rowOnActionTriggerAnimation != null && !_model.isAnimated4) {
+                              await rowOnActionTriggerAnimation.controller.forward(from: 0.0);
+                              _model.isAnimated4 = true;
+                            }
+                          } else if (info.visibleFraction <= 0) {
+                            if (rowOnActionTriggerAnimation != null) {
+                              await rowOnActionTriggerAnimation.controller.reverse(from: 0.0);
+                              _model.isAnimated4 = false;
+                            }
+                          }
                         },
                         child: Container(
                           width: () {
