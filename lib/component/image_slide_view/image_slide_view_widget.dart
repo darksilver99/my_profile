@@ -97,13 +97,20 @@ class _ImageSlideViewWidgetState extends State<ImageSlideViewWidget> {
                         itemBuilder: (context, imageListViewIndex, _) {
                           final imageListViewItem =
                               imageListView[imageListViewIndex];
-                          return ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.network(
-                              imageListViewItem,
-                              width: 300.0,
-                              height: 200.0,
-                              fit: BoxFit.cover,
+                          return Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.network(
+                                imageListViewItem,
+                                width: 300.0,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                              ),
                             ),
                           );
                         },
