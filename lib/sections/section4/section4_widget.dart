@@ -130,12 +130,12 @@ class _Section4WidgetState extends State<Section4Widget>
               fit: BoxFit.cover,
             ),
           ),
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                decoration: BoxDecoration(),
-                child: Padding(
+          Container(
+            decoration: BoxDecoration(),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -170,10 +170,7 @@ class _Section4WidgetState extends State<Section4Widget>
                     animationsMap['rowOnActionTriggerAnimation']!,
                   ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(),
-                child: Padding(
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 64.0),
                   child: Container(
                     width: () {
@@ -589,8 +586,8 @@ class _Section4WidgetState extends State<Section4Widget>
                     animationsMap['containerOnActionTriggerAnimation']!,
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
