@@ -56,6 +56,26 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'containerOnActionTriggerAnimation': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
@@ -69,8 +89,41 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'rowOnActionTriggerAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
         applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
@@ -109,8 +162,48 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'buttonOnActionTriggerAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
         applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
@@ -196,9 +289,12 @@ class _Section1WidgetState extends State<Section1Widget>
                         ),
                       ),
                     ],
-                  ).animateOnActionTrigger(
-                    animationsMap['rowOnActionTriggerAnimation1']!,
-                  ),
+                  )
+                      .animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation1']!)
+                      .animateOnActionTrigger(
+                        animationsMap['rowOnActionTriggerAnimation1']!,
+                      ),
                 ),
               ),
               Container(
@@ -211,9 +307,12 @@ class _Section1WidgetState extends State<Section1Widget>
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).tertiary,
                     ),
-                  ).animateOnActionTrigger(
-                    animationsMap['containerOnActionTriggerAnimation']!,
-                  ),
+                  )
+                      .animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation']!)
+                      .animateOnActionTrigger(
+                        animationsMap['containerOnActionTriggerAnimation']!,
+                      ),
                 ),
               ),
               Container(
@@ -237,9 +336,12 @@ class _Section1WidgetState extends State<Section1Widget>
                         ),
                       ),
                     ],
-                  ).animateOnActionTrigger(
-                    animationsMap['rowOnActionTriggerAnimation2']!,
-                  ),
+                  )
+                      .animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation2']!)
+                      .animateOnActionTrigger(
+                        animationsMap['rowOnActionTriggerAnimation2']!,
+                      ),
                 ),
               ),
               Container(
@@ -282,9 +384,12 @@ class _Section1WidgetState extends State<Section1Widget>
                             ),
                             borderRadius: BorderRadius.circular(100.0),
                           ),
-                        ).animateOnActionTrigger(
-                          animationsMap['buttonOnActionTriggerAnimation1']!,
-                        ),
+                        )
+                            .animateOnPageLoad(
+                                animationsMap['buttonOnPageLoadAnimation1']!)
+                            .animateOnActionTrigger(
+                              animationsMap['buttonOnActionTriggerAnimation1']!,
+                            ),
                       ),
                       Padding(
                         padding:
@@ -318,9 +423,12 @@ class _Section1WidgetState extends State<Section1Widget>
                             ),
                             borderRadius: BorderRadius.circular(100.0),
                           ),
-                        ).animateOnActionTrigger(
-                          animationsMap['buttonOnActionTriggerAnimation2']!,
-                        ),
+                        )
+                            .animateOnPageLoad(
+                                animationsMap['buttonOnPageLoadAnimation2']!)
+                            .animateOnActionTrigger(
+                              animationsMap['buttonOnActionTriggerAnimation2']!,
+                            ),
                       ),
                     ],
                   ),
