@@ -9,7 +9,12 @@ import 'footer_model.dart';
 export 'footer_model.dart';
 
 class FooterWidget extends StatefulWidget {
-  const FooterWidget({super.key});
+  const FooterWidget({
+    super.key,
+    required this.configDoc,
+  });
+
+  final MyProfileConfigRecord? configDoc;
 
   @override
   State<FooterWidget> createState() => _FooterWidgetState();
@@ -49,85 +54,53 @@ class _FooterWidgetState extends State<FooterWidget> {
       ),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-        child: StreamBuilder<List<MyProfileConfigRecord>>(
-          stream: queryMyProfileConfigRecord(
-            singleRecord: true,
-          ),
-          builder: (context, snapshot) {
-            // Customize what your widget looks like when it's loading.
-            if (!snapshot.hasData) {
-              return Center(
-                child: SizedBox(
-                  width: 50.0,
-                  height: 50.0,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      FlutterFlowTheme.of(context).primary,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Text(
+                '© 2024 Anusorn Kongthong. All rights reserved.',
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      letterSpacing: 0.0,
                     ),
-                  ),
-                ),
-              );
-            }
-            List<MyProfileConfigRecord> rowMyProfileConfigRecordList =
-                snapshot.data!;
-            // Return an empty Container when the item does not exist.
-            if (snapshot.data!.isEmpty) {
-              return Container();
-            }
-            final rowMyProfileConfigRecord =
-                rowMyProfileConfigRecordList.isNotEmpty
-                    ? rowMyProfileConfigRecordList.first
-                    : null;
-
-            return Row(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
+              ),
+            ),
+            Expanded(
+              child: Builder(
+                builder: (context) => InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onDoubleTap: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (dialogContext) {
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          child: PassViewWidget(),
+                        );
+                      },
+                    );
+                  },
                   child: Text(
-                    '© 2024 Anusorn Kongthong. All rights reserved.',
+                    'สถิติผู้เข้าชมตั้งแต่ 1 มกราคม 2567 (${widget!.configDoc?.hits?.toString()})',
+                    textAlign: TextAlign.end,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           letterSpacing: 0.0,
                         ),
                   ),
                 ),
-                Expanded(
-                  child: Builder(
-                    builder: (context) => InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onDoubleTap: () async {
-                        await showDialog(
-                          context: context,
-                          builder: (dialogContext) {
-                            return Dialog(
-                              elevation: 0,
-                              insetPadding: EdgeInsets.zero,
-                              backgroundColor: Colors.transparent,
-                              alignment: AlignmentDirectional(0.0, 0.0)
-                                  .resolve(Directionality.of(context)),
-                              child: PassViewWidget(),
-                            );
-                          },
-                        );
-                      },
-                      child: Text(
-                        'สถิติผู้เข้าชมตั้งแต่ 1 มกราคม 2567 (${rowMyProfileConfigRecord?.hits?.toString()})',
-                        textAlign: TextAlign.end,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              letterSpacing: 0.0,
-                            ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
+              ),
+            ),
+          ],
         ),
       ),
     );

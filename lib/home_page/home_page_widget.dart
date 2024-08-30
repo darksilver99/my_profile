@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/component/footer/footer_widget.dart';
 import '/component/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,7 +8,10 @@ import '/sections/section1/section1_widget.dart';
 import '/sections/section2/section2_widget.dart';
 import '/sections/section3/section3_widget.dart';
 import '/sections/section4/section4_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -29,6 +33,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.configResult = await queryMyProfileConfigRecordOnce(
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+
+      await _model.configResult!.reference.update({
+        ...mapToFirestore(
+          {
+            'hits': FieldValue.increment(1),
+          },
+        ),
+      });
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -78,7 +97,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     wrapWithModel(
                       model: _model.footerModel,
                       updateCallback: () => setState(() {}),
-                      child: FooterWidget(),
+                      child: FooterWidget(
+                        configDoc: _model.configResult!,
+                      ),
                     ),
                   ],
                 ),

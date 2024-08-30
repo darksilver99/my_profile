@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/component/footer/footer_widget.dart';
 import '/component/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,7 +9,10 @@ import '/sections/section2/section2_widget.dart';
 import '/sections/section3/section3_widget.dart';
 import '/sections/section4/section4_widget.dart';
 import 'home_page_widget.dart' show HomePageWidget;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +20,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Firestore Query - Query a collection] action in HomePage widget.
+  MyProfileConfigRecord? configResult;
   // Model for section1 component.
   late Section1Model section1Model;
   // Model for section2 component.
