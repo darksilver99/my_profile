@@ -36,8 +36,9 @@ class _Section1WidgetState extends State<Section1Widget>
     _model = createModel(context, () => Section1Model());
 
     animationsMap.addAll({
-      'rowOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
+      'rowOnActionTriggerAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
@@ -55,8 +56,9 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
+      'containerOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
         effectsBuilder: () => [
           FadeEffect(
             curve: Curves.easeInOut,
@@ -67,8 +69,9 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
-      'rowOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
+      'rowOnActionTriggerAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
@@ -86,8 +89,9 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
-      'buttonOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
+      'buttonOnActionTriggerAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
@@ -105,8 +109,9 @@ class _Section1WidgetState extends State<Section1Widget>
           ),
         ],
       ),
-      'buttonOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
+      'buttonOnActionTriggerAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
@@ -125,6 +130,12 @@ class _Section1WidgetState extends State<Section1Widget>
         ],
       ),
     });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -163,131 +174,156 @@ class _Section1WidgetState extends State<Section1Widget>
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'นำเสนอเส้นทางของฉันในโลก\nของการเขียนโค้ดและการออกแบบ',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).info,
-                              fontSize: 46.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+              Container(
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'นำเสนอเส้นทางของฉันในโลก\nของการเขียนโค้ดและการออกแบบ',
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context).info,
+                                    fontSize: 46.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
                       ),
-                    ),
-                  ],
-                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                child: Container(
-                  width: 150.0,
-                  height: 3.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).tertiary,
+                    ],
+                  ).animateOnActionTrigger(
+                    animationsMap['rowOnActionTriggerAnimation1']!,
                   ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation']!),
+                ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'สำรวจโปรเจกต์ ทักษะ และความหลงใหลที่ผลักดันความคิดสร้างสรรค์ของฉัน\nมาร่วมเปลี่ยนไอเดียให้กลายเป็นโซลูชันที่มีผลกระทบด้วยกัน',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).info,
-                              fontSize: 24.0,
-                              letterSpacing: 0.0,
-                            ),
+              Container(
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                  child: Container(
+                    width: 150.0,
+                    height: 3.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).tertiary,
+                    ),
+                  ).animateOnActionTrigger(
+                    animationsMap['containerOnActionTriggerAnimation']!,
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'สำรวจโปรเจกต์ ทักษะ และความหลงใหลที่ผลักดันความคิดสร้างสรรค์ของฉัน\nมาร่วมเปลี่ยนไอเดียให้กลายเป็นโซลูชันที่มีผลกระทบด้วยกัน',
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context).info,
+                                    fontSize: 24.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
                       ),
-                    ),
-                  ],
-                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
+                    ],
+                  ).animateOnActionTrigger(
+                    animationsMap['rowOnActionTriggerAnimation2']!,
+                  ),
+                ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          await Future.delayed(const Duration(milliseconds: 1));
-                        },
-                        text: 'About',
-                        options: FFButtonOptions(
-                          width: 150.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).tertiary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+              Container(
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await Future.delayed(
+                                const Duration(milliseconds: 1));
+                          },
+                          text: 'About',
+                          options: FFButtonOptions(
+                            width: 150.0,
+                            height: 50.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).tertiary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(100.0),
                           ),
-                          borderRadius: BorderRadius.circular(100.0),
+                        ).animateOnActionTrigger(
+                          animationsMap['buttonOnActionTriggerAnimation1']!,
                         ),
-                      ).animateOnPageLoad(
-                          animationsMap['buttonOnPageLoadAnimation1']!),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          await Future.delayed(const Duration(milliseconds: 1));
-                        },
-                        text: 'Portfolio',
-                        options: FFButtonOptions(
-                          width: 150.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).tertiary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await Future.delayed(
+                                const Duration(milliseconds: 1));
+                          },
+                          text: 'Portfolio',
+                          options: FFButtonOptions(
+                            width: 150.0,
+                            height: 50.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).tertiary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(100.0),
                           ),
-                          borderRadius: BorderRadius.circular(100.0),
+                        ).animateOnActionTrigger(
+                          animationsMap['buttonOnActionTriggerAnimation2']!,
                         ),
-                      ).animateOnPageLoad(
-                          animationsMap['buttonOnPageLoadAnimation2']!),
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
