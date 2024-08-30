@@ -100,7 +100,7 @@ class _ImageSlideViewWidgetState extends State<ImageSlideViewWidget> {
                           return ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.network(
-                              'https://picsum.photos/seed/825/600',
+                              imageListViewItem,
                               width: 300.0,
                               height: 200.0,
                               fit: BoxFit.cover,
