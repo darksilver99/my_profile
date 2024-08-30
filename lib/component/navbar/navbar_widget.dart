@@ -83,7 +83,7 @@ class _NavbarWidgetState extends State<NavbarWidget>
           height: 60.0,
           decoration: BoxDecoration(
             color: FFAppState().scrollDistance > 0.0
-                ? Color(0xB2FFFFFF)
+                ? FlutterFlowTheme.of(context).info
                 : Colors.transparent,
           ),
           child: Padding(
