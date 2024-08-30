@@ -5,6 +5,7 @@ import 'schema/util/firestore_util.dart';
 
 import 'schema/project_list_record.dart';
 import 'schema/contact_list_record.dart';
+import 'schema/my_profile_config_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -15,6 +16,7 @@ export 'schema/util/schema_util.dart';
 
 export 'schema/project_list_record.dart';
 export 'schema/contact_list_record.dart';
+export 'schema/my_profile_config_record.dart';
 
 /// Functions to query ProjectListRecords (as a Stream and as a Future).
 Future<int> queryProjectListRecordCount({
@@ -85,6 +87,43 @@ Future<List<ContactListRecord>> queryContactListRecordOnce({
     queryCollectionOnce(
       ContactListRecord.collection,
       ContactListRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query MyProfileConfigRecords (as a Stream and as a Future).
+Future<int> queryMyProfileConfigRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      MyProfileConfigRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<MyProfileConfigRecord>> queryMyProfileConfigRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      MyProfileConfigRecord.collection,
+      MyProfileConfigRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<MyProfileConfigRecord>> queryMyProfileConfigRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      MyProfileConfigRecord.collection,
+      MyProfileConfigRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

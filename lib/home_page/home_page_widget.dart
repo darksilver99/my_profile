@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/component/footer/footer_widget.dart';
 import '/component/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,7 +8,10 @@ import '/sections/section1/section1_widget.dart';
 import '/sections/section2/section2_widget.dart';
 import '/sections/section3/section3_widget.dart';
 import '/sections/section4/section4_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -30,6 +34,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.configResult = await queryMyProfileConfigRecordOnce(
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+
+      await _model.configResult!.reference.update({
+        ...mapToFirestore(
+          {
+            'hits': FieldValue.increment(1),
+          },
+        ),
+      });
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -46,7 +65,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
           child: Stack(
@@ -78,7 +97,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     wrapWithModel(
                       model: _model.footerModel,
                       updateCallback: () => setState(() {}),
-                      child: FooterWidget(),
+                      child: FooterWidget(
+                        configDoc: _model.configResult!,
+                      ),
                     ),
                   ],
                 ),
@@ -87,6 +108,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 model: _model.navbarModel,
                 updateCallback: () => setState(() {}),
                 child: NavbarWidget(),
+              ),
+              Align(
+                alignment: AlignmentDirectional(1.0, 1.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 16.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await Future.delayed(const Duration(milliseconds: 1));
+                    },
+                    child: Container(
+                      width: 60.0,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: Color(0x94000000),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Icon(
+                          Icons.keyboard_arrow_up_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 36.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

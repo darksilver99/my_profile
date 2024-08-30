@@ -170,7 +170,7 @@ class _Section1WidgetState extends State<Section1Widget>
                   children: [
                     Expanded(
                       child: Text(
-                        'Your Favorite Place for Free\nBootstrap Themes',
+                        'นำเสนอเส้นทางของฉันในโลก\nของการเขียนโค้ดและการออกแบบ',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
@@ -202,7 +202,7 @@ class _Section1WidgetState extends State<Section1Widget>
                   children: [
                     Expanded(
                       child: Text(
-                        'Start Bootstrap can help you build better websites using the Bootstrap framework! Just\ndownload a theme and start customizing, no strings attached!',
+                        'สำรวจโปรเจกต์ ทักษะ และความหลงใหลที่ผลักดันความคิดสร้างสรรค์ของฉัน\nมาร่วมเปลี่ยนไอเดียให้กลายเป็นโซลูชันที่มีผลกระทบด้วยกัน',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
@@ -225,8 +225,8 @@ class _Section1WidgetState extends State<Section1Widget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          await Future.delayed(const Duration(milliseconds: 1));
                         },
                         text: 'About',
                         options: FFButtonOptions(
@@ -258,8 +258,8 @@ class _Section1WidgetState extends State<Section1Widget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          await Future.delayed(const Duration(milliseconds: 1));
                         },
                         text: 'Portfolio',
                         options: FFButtonOptions(
