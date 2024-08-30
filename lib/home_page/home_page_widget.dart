@@ -62,8 +62,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     _scrollController.addListener(() {
       double scrollPosition = _scrollController.offset;
       if (_scrollController.position.userScrollDirection != ScrollDirection.idle) {
-        print(scrollPosition);
-        // Do something when the user starts scrolling
+        FFAppState().scrollDistance = scrollPosition;
+        FFAppState().update((){});
       }
     });
   }
