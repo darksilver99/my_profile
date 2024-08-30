@@ -39,6 +39,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       _model.configResult = await queryMyProfileConfigRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      _model.isLoading = false;
+      setState(() {});
 
       await _model.configResult!.reference.update({
         ...mapToFirestore(
@@ -94,13 +96,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       updateCallback: () => setState(() {}),
                       child: Section4Widget(),
                     ),
-                    wrapWithModel(
-                      model: _model.footerModel,
-                      updateCallback: () => setState(() {}),
-                      child: FooterWidget(
-                        configDoc: _model.configResult!,
+                    if (_model.isLoading)
+                      wrapWithModel(
+                        model: _model.footerModel,
+                        updateCallback: () => setState(() {}),
+                        child: FooterWidget(
+                          configDoc: _model.configResult!,
+                        ),
                       ),
-                    ),
                   ],
                 ),
               ),
