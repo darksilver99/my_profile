@@ -1,4 +1,5 @@
 import 'package:my_profile/custom_toon/solo.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -181,8 +182,22 @@ class _Section1WidgetState extends State<Section1Widget>
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('rowOnActionTriggerAnimation1'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation1'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated = false;
+                    }
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Row(
@@ -208,8 +223,22 @@ class _Section1WidgetState extends State<Section1Widget>
                   ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('containerOnActionTriggerAnimation'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['containerOnActionTriggerAnimation'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated2) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated2 = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated2 = false;
+                    }
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Container(
@@ -223,8 +252,22 @@ class _Section1WidgetState extends State<Section1Widget>
                   ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('rowOnActionTriggerAnimation2'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation2'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated3) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated3 = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated3 = false;
+                    }
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
                   child: Row(
@@ -249,8 +292,31 @@ class _Section1WidgetState extends State<Section1Widget>
                   ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('buttonOnActionTriggerAnimation1'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['buttonOnActionTriggerAnimation1'];
+                  AnimationInfo? widgetAnimate2 = animationsMap['buttonOnActionTriggerAnimation2'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated4) {
+                       widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated4 = true;
+                    }
+                    if (widgetAnimate2 != null && !_model.isAnimated5) {
+                      await widgetAnimate2.controller.forward(from: 0.0);
+                      _model.isAnimated5 = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                       widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated4 = false;
+                    }
+                    if (widgetAnimate2 != null) {
+                      await widgetAnimate2.controller.reverse(from: 0.0);
+                      _model.isAnimated5 = false;
+                    }
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Row(
