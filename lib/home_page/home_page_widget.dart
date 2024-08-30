@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:my_profile/custom_toon/solo.dart';
 
 import '/backend/backend.dart';
@@ -57,6 +58,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+
+    _scrollController.addListener(() {
+      double scrollPosition = _scrollController.offset;
+      if (_scrollController.position.userScrollDirection != ScrollDirection.idle) {
+        print(scrollPosition);
+        // Do something when the user starts scrolling
+      }
+    });
   }
 
   @override
