@@ -15,6 +15,12 @@ class Section2Model extends FlutterFlowModel<Section2Widget> {
 
   bool isAnimated = false;
 
+  bool isAnimated2 = false;
+
+  bool isAnimated3 = false;
+
+  bool isAnimated4 = false;
+
   @override
   void initState(BuildContext context) {}
 
