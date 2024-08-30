@@ -227,8 +227,8 @@ class _Section2WidgetState extends State<Section2Widget>
                                       0.0, 0.0, 0.0, 32.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/352/600',
+                                    child: Image.asset(
+                                      'assets/images/S__4735028.jpg',
                                       width: 250.0,
                                       height: 300.0,
                                       fit: BoxFit.cover,
@@ -708,11 +708,11 @@ class _Section2WidgetState extends State<Section2Widget>
                                       0.0, 0.0, 0.0, 32.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/352/600',
+                                    child: Image.asset(
+                                      'assets/images/focused-tiny-people-reading-books_74855-5836.jpg',
                                       width: 250.0,
                                       height: 300.0,
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
@@ -755,11 +755,11 @@ class _Section2WidgetState extends State<Section2Widget>
                                       0.0, 0.0, 0.0, 16.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/352/600',
+                                    child: Image.asset(
+                                      'assets/images/young-programmer-working-laptop-computer-cartoon-character_24797-2123.jpg',
                                       width: 250.0,
                                       height: 300.0,
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
