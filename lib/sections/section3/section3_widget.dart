@@ -149,12 +149,12 @@ class _Section3WidgetState extends State<Section3Widget>
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                decoration: BoxDecoration(),
-                child: Padding(
+          child: Container(
+            decoration: BoxDecoration(),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -188,10 +188,7 @@ class _Section3WidgetState extends State<Section3Widget>
                     animationsMap['rowOnActionTriggerAnimation1']!,
                   ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(),
-                child: Row(
+                Row(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -235,10 +232,7 @@ class _Section3WidgetState extends State<Section3Widget>
                 ).animateOnActionTrigger(
                   animationsMap['rowOnActionTriggerAnimation2']!,
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(),
-                child: Row(
+                Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -284,8 +278,8 @@ class _Section3WidgetState extends State<Section3Widget>
                 ).animateOnActionTrigger(
                   animationsMap['rowOnActionTriggerAnimation3']!,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

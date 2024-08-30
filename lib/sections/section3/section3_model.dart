@@ -30,6 +30,12 @@ class Section3Model extends FlutterFlowModel<Section3Widget> {
           int index, Function(ProjectListRecord) updateFn) =>
       projectList[index] = updateFn(projectList[index]);
 
+  bool isAnimated = false;
+
+  bool isAnimated2 = false;
+
+  bool isAnimated3 = false;
+
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Firestore Query - Query a collection] action in section3 widget.
