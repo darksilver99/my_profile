@@ -1,3 +1,5 @@
+import 'package:my_profile/custom_toon/solo.dart';
+
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -94,6 +96,7 @@ class _NavbarWidgetState extends State<NavbarWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     await Future.delayed(const Duration(milliseconds: 1));
+                    scrollToSection(FFAppState().aboutKey);
                   },
                   child: Text(
                     'About',
@@ -115,6 +118,7 @@ class _NavbarWidgetState extends State<NavbarWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     await Future.delayed(const Duration(milliseconds: 1));
+                    scrollToSection(FFAppState().portfolioKey);
                   },
                   child: Text(
                     'Portfolio',
@@ -136,6 +140,7 @@ class _NavbarWidgetState extends State<NavbarWidget>
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     await Future.delayed(const Duration(milliseconds: 1));
+                    scrollToSection(FFAppState().contactKey);
                   },
                   child: Text(
                     'Contact',

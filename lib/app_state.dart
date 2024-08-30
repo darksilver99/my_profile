@@ -49,6 +49,12 @@ class FFAppState extends ChangeNotifier {
     _portfolioKey = value;
   }
 
+  dynamic _contactKey;
+  dynamic get contactKey => _contactKey;
+  set contactKey(dynamic value) {
+    _contactKey = value;
+  }
+
   dynamic _test;
   dynamic get test => _test;
   set test(dynamic value) {

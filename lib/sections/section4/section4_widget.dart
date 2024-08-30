@@ -19,6 +19,8 @@ class Section4Widget extends StatefulWidget {
 class _Section4WidgetState extends State<Section4Widget> {
   late Section4Model _model;
 
+  final GlobalKey contactKey = GlobalKey();
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -43,6 +45,8 @@ class _Section4WidgetState extends State<Section4Widget> {
     _model.textFieldFocusNode4 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+
+    FFAppState().contactKey = contactKey;
   }
 
   @override
@@ -55,6 +59,7 @@ class _Section4WidgetState extends State<Section4Widget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: contactKey,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.transparent,
