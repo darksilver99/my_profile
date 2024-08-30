@@ -1,10 +1,9 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/component/image_slide_view/image_slide_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'project_detail_view_model.dart';
 export 'project_detail_view_model.dart';
@@ -175,32 +174,38 @@ class _ProjectDetailViewWidgetState extends State<ProjectDetailViewWidget> {
                                         decoration: BoxDecoration(
                                           color: Colors.black,
                                         ),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            await Navigator.push(
-                                              context,
-                                              PageTransition(
-                                                type: PageTransitionType.fade,
-                                                child:
-                                                    FlutterFlowExpandedImageView(
-                                                  image: Image.network(
-                                                    imageListItem,
-                                                    fit: BoxFit.contain,
-                                                  ),
-                                                  allowRotation: false,
-                                                  tag: imageListItem,
-                                                  useHeroAnimation: true,
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                          child: Hero(
-                                            tag: imageListItem,
-                                            transitionOnUserGestures: true,
+                                        child: Builder(
+                                          builder: (context) => InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: ImageSlideViewWidget(
+                                                      imageList: widget!
+                                                          .projectDoc!.images,
+                                                      imageIndex:
+                                                          imageListIndex,
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
