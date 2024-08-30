@@ -63,6 +63,8 @@ class _NavbarWidgetState extends State<NavbarWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Visibility(
       visible: () {
         if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
@@ -75,85 +77,97 @@ class _NavbarWidgetState extends State<NavbarWidget>
           return true;
         }
       }(),
-      child: Container(
-        width: double.infinity,
-        height: 60.0,
-        decoration: BoxDecoration(
-          color: Color(0xB2000000),
-        ),
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    await Future.delayed(const Duration(milliseconds: 1));
-                    scrollToSection(FFAppState().aboutKey);
-                  },
-                  child: Text(
-                    'About',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).info,
-                          fontSize: 22.0,
-                          letterSpacing: 0.0,
-                        ),
+      child: Material(
+        color: Colors.transparent,
+        elevation: FFAppState().scrollDistance > 0.0 ? 3.0 : 0.0,
+        child: Container(
+          width: double.infinity,
+          height: 60.0,
+          decoration: BoxDecoration(
+            color: FFAppState().scrollDistance > 0.0
+                ? Color(0xB2FFFFFF)
+                : Colors.transparent,
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await Future.delayed(const Duration(milliseconds: 1));
+                      scrollToSection(FFAppState().aboutKey);
+                    },
+                    child: Text(
+                      'About',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FFAppState().scrollDistance > 0.0
+                                ? FlutterFlowTheme.of(context).primaryText
+                                : FlutterFlowTheme.of(context).info,
+                            fontSize: 22.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    await Future.delayed(const Duration(milliseconds: 1));
-                    scrollToSection(FFAppState().portfolioKey);
-                  },
-                  child: Text(
-                    'Portfolio',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).info,
-                          fontSize: 22.0,
-                          letterSpacing: 0.0,
-                        ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await Future.delayed(const Duration(milliseconds: 1));
+                      await Future.delayed(const Duration(milliseconds: 1));
+                    },
+                    child: Text(
+                      'Portfolio',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FFAppState().scrollDistance > 0.0
+                                ? FlutterFlowTheme.of(context).primaryText
+                                : FlutterFlowTheme.of(context).info,
+                            fontSize: 22.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    await Future.delayed(const Duration(milliseconds: 1));
-                    scrollToSection(FFAppState().contactKey);
-                  },
-                  child: Text(
-                    'Contact',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).info,
-                          fontSize: 22.0,
-                          letterSpacing: 0.0,
-                        ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await Future.delayed(const Duration(milliseconds: 1));
+                      scrollToSection(FFAppState().contactKey);
+                    },
+                    child: Text(
+                      'Contact',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FFAppState().scrollDistance > 0.0
+                                ? FlutterFlowTheme.of(context).primaryText
+                                : FlutterFlowTheme.of(context).info,
+                            fontSize: 22.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
