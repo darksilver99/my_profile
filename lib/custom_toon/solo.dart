@@ -7,8 +7,16 @@ scrollToSection(_key) {
   final double offset = renderBox.localToGlobal(Offset.zero).dy;
 
   FFAppState().scrollController.animateTo(
-    offset,
-    duration: Duration(milliseconds: 300),
-    curve: Curves.easeInOut,
-  );
+        offset,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+}
+
+scrollToTop() {
+  FFAppState().scrollController.animateTo(
+        0.0,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
 }

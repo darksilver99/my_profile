@@ -24,6 +24,8 @@ class Section3Widget extends StatefulWidget {
 class _Section3WidgetState extends State<Section3Widget> {
   late Section3Model _model;
 
+  final GlobalKey portfolioKey = GlobalKey();
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -54,6 +56,8 @@ class _Section3WidgetState extends State<Section3Widget> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+
+    FFAppState().portfolioKey = portfolioKey;
   }
 
   @override
@@ -70,6 +74,7 @@ class _Section3WidgetState extends State<Section3Widget> {
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
         child: Container(
+          key: portfolioKey,
           width: double.infinity,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,

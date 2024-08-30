@@ -43,6 +43,12 @@ class FFAppState extends ChangeNotifier {
     _section1Key = value;
   }
 
+  dynamic _portfolioKey;
+  dynamic get portfolioKey => _portfolioKey;
+  set portfolioKey(dynamic value) {
+    _portfolioKey = value;
+  }
+
   dynamic _test;
   dynamic get test => _test;
   set test(dynamic value) {

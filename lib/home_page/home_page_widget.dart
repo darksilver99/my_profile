@@ -1,3 +1,5 @@
+import 'package:my_profile/custom_toon/solo.dart';
+
 import '/backend/backend.dart';
 import '/component/footer/footer_widget.dart';
 import '/component/navbar/navbar_widget.dart';
@@ -127,6 +129,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       await Future.delayed(const Duration(milliseconds: 1));
+                      scrollToTop();
                     },
                     child: Container(
                       width: 60.0,

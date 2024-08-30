@@ -268,6 +268,7 @@ class _Section1WidgetState extends State<Section1Widget>
                       child: FFButtonWidget(
                         onPressed: () async {
                           await Future.delayed(const Duration(milliseconds: 1));
+                          scrollToSection(FFAppState().portfolioKey);
                         },
                         text: 'Portfolio',
                         options: FFButtonOptions(
