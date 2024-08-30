@@ -1,3 +1,5 @@
+import 'package:visibility_detector/visibility_detector.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -133,8 +135,22 @@ class _Section4WidgetState extends State<Section4Widget>
           Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('rowOnActionTriggerAnimation'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['rowOnActionTriggerAnimation'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated = false;
+                    }
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
                   child: Row(
@@ -171,8 +187,22 @@ class _Section4WidgetState extends State<Section4Widget>
                   ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(),
+              VisibilityDetector(
+                key: Key('containerOnActionTriggerAnimation'),
+                onVisibilityChanged: (VisibilityInfo info) async {
+                  AnimationInfo? widgetAnimate = animationsMap['containerOnActionTriggerAnimation'];
+                  if (info.visibleFraction > 0.5) {
+                    if (widgetAnimate != null && !_model.isAnimated2) {
+                      await widgetAnimate.controller.forward(from: 0.0);
+                      _model.isAnimated2 = true;
+                    }
+                  } else if (info.visibleFraction <= 0) {
+                    if (widgetAnimate != null) {
+                      await widgetAnimate.controller.reverse(from: 0.0);
+                      _model.isAnimated2 = false;
+                    }
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 64.0),
                   child: Container(
