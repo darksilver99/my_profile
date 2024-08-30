@@ -154,9 +154,20 @@ class _Section2WidgetState extends State<Section2Widget>
         mainAxisSize: MainAxisSize.max,
         children: [
           VisibilityDetector(
-            key: Key('about1'),
+            key: Key('rowOnActionTriggerAnimation'),
             onVisibilityChanged: (VisibilityInfo info) async {
-              await animateWidget(info, animationsMap['rowOnActionTriggerAnimation']);
+              AnimationInfo? rowOnActionTriggerAnimation = animationsMap['rowOnActionTriggerAnimation'];
+              if (info.visibleFraction > 0.5) {
+                if (rowOnActionTriggerAnimation != null && !_model.isAnimated) {
+                  await rowOnActionTriggerAnimation.controller.forward(from: 0.0);
+                  _model.isAnimated = true;
+                }
+              } else if (info.visibleFraction <= 0) {
+                if (rowOnActionTriggerAnimation != null) {
+                  await rowOnActionTriggerAnimation.controller.reverse(from: 0.0);
+                  _model.isAnimated = false;
+                }
+              }
             },
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
