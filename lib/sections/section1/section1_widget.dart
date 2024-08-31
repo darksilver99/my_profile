@@ -40,22 +40,8 @@ class _Section1WidgetState extends State<Section1Widget>
     _model = createModel(context, () => Section1Model());
 
     animationsMap.addAll({
-      'rowOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
       'rowOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
-        applyInitialState: true,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
@@ -143,12 +129,6 @@ class _Section1WidgetState extends State<Section1Widget>
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
 
@@ -209,12 +189,7 @@ class _Section1WidgetState extends State<Section1Widget>
                       ),
                     ),
                   ],
-                )
-                    .animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation1']!)
-                    .animateOnActionTrigger(
-                      animationsMap['rowOnActionTriggerAnimation']!,
-                    ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
