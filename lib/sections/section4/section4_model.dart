@@ -13,12 +13,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Section4Model extends FlutterFlowModel<Section4Widget> {
-  ///  Local state fields for this component.
-
-  bool isAnimated = false;
-
-  bool isAnimated2 = false;
-
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
