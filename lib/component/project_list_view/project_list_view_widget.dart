@@ -115,7 +115,20 @@ class _ProjectListViewWidgetState extends State<ProjectListViewWidget> {
                       2.0,
                     ),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
+                      crossAxisCount: () {
+                        if (MediaQuery.sizeOf(context).width <
+                            kBreakpointSmall) {
+                          return 2;
+                        } else if (MediaQuery.sizeOf(context).width <
+                            kBreakpointMedium) {
+                          return 3;
+                        } else if (MediaQuery.sizeOf(context).width <
+                            kBreakpointLarge) {
+                          return 4;
+                        } else {
+                          return 5;
+                        }
+                      }(),
                       crossAxisSpacing: 16.0,
                       mainAxisSpacing: 16.0,
                       childAspectRatio: 1.0,
