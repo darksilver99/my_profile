@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/component/project_detail_view/project_detail_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -191,7 +192,22 @@ class _ProjectListViewWidgetState extends State<ProjectListViewWidget> {
                                     children: [
                                       Container(
                                         width: double.infinity,
-                                        height: 100.0,
+                                        height: () {
+                                          if (MediaQuery.sizeOf(context).width <
+                                              kBreakpointSmall) {
+                                            return 40.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                                  .width <
+                                              kBreakpointMedium) {
+                                            return 60.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                                  .width <
+                                              kBreakpointLarge) {
+                                            return 80.0;
+                                          } else {
+                                            return 100.0;
+                                          }
+                                        }(),
                                         decoration: BoxDecoration(
                                           color: Color(0x7E000000),
                                         ),
@@ -206,7 +222,7 @@ class _ProjectListViewWidgetState extends State<ProjectListViewWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Expanded(
-                                                    child: Text(
+                                                    child: AutoSizeText(
                                                       gridViewProjectListRecord
                                                           .subject,
                                                       maxLines: 2,
