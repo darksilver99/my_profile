@@ -51,6 +51,11 @@ class ProjectListRecord extends FirestoreRecord {
   int get seq => _seq ?? 0;
   bool hasSeq() => _seq != null;
 
+  // "type" field.
+  String? _type;
+  String get type => _type ?? '';
+  bool hasType() => _type != null;
+
   void _initializeFields() {
     _createDate = snapshotData['create_date'] as DateTime?;
     _status = castToType<int>(snapshotData['status']);
@@ -59,6 +64,7 @@ class ProjectListRecord extends FirestoreRecord {
     _detail = snapshotData['detail'] as String?;
     _images = getDataList(snapshotData['images']);
     _seq = castToType<int>(snapshotData['seq']);
+    _type = snapshotData['type'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -102,6 +108,7 @@ Map<String, dynamic> createProjectListRecordData({
   String? subject,
   String? detail,
   int? seq,
+  String? type,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -111,6 +118,7 @@ Map<String, dynamic> createProjectListRecordData({
       'subject': subject,
       'detail': detail,
       'seq': seq,
+      'type': type,
     }.withoutNulls,
   );
 
@@ -129,7 +137,8 @@ class ProjectListRecordDocumentEquality implements Equality<ProjectListRecord> {
         e1?.subject == e2?.subject &&
         e1?.detail == e2?.detail &&
         listEquality.equals(e1?.images, e2?.images) &&
-        e1?.seq == e2?.seq;
+        e1?.seq == e2?.seq &&
+        e1?.type == e2?.type;
   }
 
   @override
@@ -140,7 +149,8 @@ class ProjectListRecordDocumentEquality implements Equality<ProjectListRecord> {
         e?.subject,
         e?.detail,
         e?.images,
-        e?.seq
+        e?.seq,
+        e?.type
       ]);
 
   @override
