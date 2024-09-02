@@ -195,7 +195,7 @@ class _ProjectListViewWidgetState extends State<ProjectListViewWidget> {
                                         height: () {
                                           if (MediaQuery.sizeOf(context).width <
                                               kBreakpointSmall) {
-                                            return 40.0;
+                                            return 60.0;
                                           } else if (MediaQuery.sizeOf(context)
                                                   .width <
                                               kBreakpointMedium) {
@@ -252,7 +252,7 @@ class _ProjectListViewWidgetState extends State<ProjectListViewWidget> {
                                                                               context)
                                                                           .width <
                                                                       kBreakpointLarge) {
-                                                                    return 22.0;
+                                                                    return 18.0;
                                                                   } else {
                                                                     return 24.0;
                                                                   }
