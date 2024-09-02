@@ -89,7 +89,7 @@ class _ProjectDetailViewWidgetState extends State<ProjectDetailViewWidget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 8.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -115,7 +115,7 @@ class _ProjectDetailViewWidgetState extends State<ProjectDetailViewWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -143,7 +143,7 @@ class _ProjectDetailViewWidgetState extends State<ProjectDetailViewWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 6.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
