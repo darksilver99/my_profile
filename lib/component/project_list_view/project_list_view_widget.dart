@@ -226,20 +226,43 @@ class _ProjectListViewWidgetState extends State<ProjectListViewWidget> {
                                                       gridViewProjectListRecord
                                                           .subject,
                                                       maxLines: 2,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .info,
-                                                            fontSize: 24.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
+                                                      minFontSize: 12.0,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .info,
+                                                                fontSize: () {
+                                                                  if (MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width <
+                                                                      kBreakpointSmall) {
+                                                                    return 14.0;
+                                                                  } else if (MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width <
+                                                                      kBreakpointMedium) {
+                                                                    return 14.0;
+                                                                  } else if (MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width <
+                                                                      kBreakpointLarge) {
+                                                                    return 22.0;
+                                                                  } else {
+                                                                    return 24.0;
+                                                                  }
+                                                                }(),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
